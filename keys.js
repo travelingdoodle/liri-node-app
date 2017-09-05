@@ -9,10 +9,10 @@ exports.twitterKeys = {
 }
 
 
-// exports.spotifyKeys = {
-//   clientId : '866c82ba1b9b4955b95ab35bdfc76ec2',
-//   clientSecret: 'd156764673ea477a9125510bc802f35c',
-// }
+exports.spotifyKeys = {
+  clientId : '866c82ba1b9b4955b95ab35bdfc76ec2',
+  clientSecret: 'd156764673ea477a9125510bc802f35c',
+}
 
 // exports.omdbKeys = {
 //   consumer_key: '40e9cece',
