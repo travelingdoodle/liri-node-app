@@ -2,6 +2,7 @@ var Spotify = require('node-spotify-api');
 var request = require("request");
 var fs = require("fs");
 var keys = require("./keys.js");
+var rp = require('request-promise');
 
 var command = process.argv[2];
 // var spotify = new Spotify({
@@ -67,4 +68,41 @@ function twospotify(){
             }
         })
     };
-    twospotify();
+    //twospotify();
+function moviefunction(){
+            //Default movie if none selected
+            if (prms === '') prms = 'Mr. Nobody';
+            
+                    //Parameters for API call
+                    let options = {
+                        uri: 'https://www.omdbapi.com?apikey=' + keys.omdbKeys.consumer_key + '&t=' + prms,
+                        json: true // Automatically parses the JSON string in the response
+                    };
+            
+                    //Call API using request-promise
+                    rp(options)
+                        .then(function (response) {
+                            console.log('Title: ' + response.Title +
+                                '\nYear: ' + response.Year +
+                                '\nIMDB Rating: ' + response.Ratings[0].Value +
+                                '\nRotten Tomatoes Rating: ' + response.Ratings[1].Value +
+                                '\nCountry(s): ' + response.Country +
+                                '\nLanguage(s): ' + response.Language +
+                                '\nPlot: ' + response.Plot +
+                                '\nActors: ' + response.Actors);
+                                fs.appendFile('./log.txt', '\n---------' + 
+                                '\nTitle: ' + response.Title +
+                                '\nYear: ' + response.Year +
+                                '\nIMDB Rating: ' + response.Ratings[0].Value +
+                                '\nRotten Tomatoes Rating: ' + response.Ratings[1].Value +
+                                '\nCountry(s): ' + response.Country +
+                                '\nLanguage(s): ' + response.Language +
+                                '\nPlot: ' + response.Plot +
+                                '\nActors: ' + response.Actors)
+                        })
+                        .catch(function (err) {
+                            // API call failed...
+                            console.log('There was an error: ' + err);
+                        });
+                    };
+                    moviefunction();

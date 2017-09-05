@@ -1,10 +1,11 @@
-// TWEETSWORK AND SPOTIFYWORKS, IDK WHATS UP WITH MOVIES, AND ....its the weekend, my guy
+// TWEETSWORK || SPOTIFYWORKS || MOVIES WORK, my guy
 
 var Twitter = require('twitter');
 var Spotify = require('node-spotify-api');
 var request = require("request");
 var fs = require("fs");
 var keys = require("./keys.js");
+var rp = require('request-promise');
 
 var command = process.argv[2];
 
@@ -99,17 +100,34 @@ function showSpotify() {
 
 function showMovie() {
   if (prms === '') prms = 'Mr. Nobody';
-  var queryUrl = "http://www.omdbapi.com/?t=" + prms + "&y=&plot=short&r=json";
+  let options = {
+    uri: 'https://www.omdbapi.com?apikey=' + keys.omdbKeys.consumer_key + '&t=' + prms,
+    json: true // Automatically parses the JSON string in the response
+  };
 
-  request(queryUrl, function (error, response, body) {
-    if (!error && response.statusCode === 200) {
-      console.log("Title: " + JSON.parse(body).Title);
-      console.log("Released: " + JSON.parse(body).Released);
-      console.log("Rate: " + JSON.parse(body).imdbRating);
-      console.log("Country: " + JSON.parse(body).Country);
-      console.log("Language: " + JSON.parse(body).Language);
-      console.log("Plot: " + JSON.parse(body).Plot);
-      console.log("Actors: " + JSON.parse(body).Actors);
-    }
-  });
+  //Call API using request-promise
+  rp(options)
+    .then(function (response) {
+      console.log('Title: ' + response.Title +
+        '\nYear: ' + response.Year +
+        '\nIMDB Rating: ' + response.Ratings[0].Value +
+        '\nRotten Tomatoes Rating: ' + response.Ratings[1].Value +
+        '\nCountry(s): ' + response.Country +
+        '\nLanguage(s): ' + response.Language +
+        '\nPlot: ' + response.Plot +
+        '\nActors: ' + response.Actors);
+      fs.appendFile('./log.txt', '\n---------' +
+        '\nTitle: ' + response.Title +
+        '\nYear: ' + response.Year +
+        '\nIMDB Rating: ' + response.Ratings[0].Value +
+        '\nRotten Tomatoes Rating: ' + response.Ratings[1].Value +
+        '\nCountry(s): ' + response.Country +
+        '\nLanguage(s): ' + response.Language +
+        '\nPlot: ' + response.Plot +
+        '\nActors: ' + response.Actors)
+    })
+    .catch(function (err) {
+      // API call failed...
+      console.log('There was an error: ' + err);
+    });
 }

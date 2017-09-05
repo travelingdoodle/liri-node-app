@@ -14,6 +14,6 @@ exports.spotifyKeys = {
   clientSecret: 'd156764673ea477a9125510bc802f35c',
 }
 
-// exports.omdbKeys = {
-//   consumer_key: '40e9cece',
-// }
+exports.omdbKeys = {
+  consumer_key: '40e9cece',
+}

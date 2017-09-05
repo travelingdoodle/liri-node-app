@@ -18,3 +18,38 @@ my-tweets
 tweet0 A doodly doodle! https://t.co/tCLhI78cqk
 tweet1 For obvious reasons... https://t.co/fLfOThvhmz
 undefined
+movie-this
+undefined
+------
+Artist: Lauv
+Track: Reforget
+Album: Reforget
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+---------
+Title: Mr. Nobody
+Year: 2009
+IMDB Rating: 7.9/10
+Rotten Tomatoes Rating: 64%
+Country(s): Belgium, Germany, Canada, France, USA, UK
+Language(s): English, Mohawk
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+movie-this
+---------
+Title: Mr. Nobody
+Year: 2009
+IMDB Rating: 7.9/10
+Rotten Tomatoes Rating: 64%
+Country(s): Belgium, Germany, Canada, France, USA, UK
+Language(s): English, Mohawk
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
