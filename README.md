@@ -1,5 +1,4 @@
 # liri-node-app
-homework bullshit
 
 LIRI is a Language Interpretation and Recognition Interface
 
